@@ -1,6 +1,7 @@
 import os from 'os';
 import * as path from 'path';
-import playwright from 'playwright-core';
+import playwright from 'playwright-extra';
+import StealthPlugin from 'puppeteer-extra-plugin-stealth';
 
 import { DappwrightLaunchResponse, OfficialOptions } from './types';
 import { getWallet, getWalletType } from './wallets/wallets';
@@ -21,6 +22,7 @@ export async function launch(browserName: string, options: OfficialOptions): Pro
 
   if (options.headless != false) browserArgs.push(`--headless=new`);
 
+  playwright.chromium.use(StealthPlugin());
   const browserContext = await playwright.chromium.launchPersistentContext(
     path.join(sessionPath, officialOptions.wallet),
     {

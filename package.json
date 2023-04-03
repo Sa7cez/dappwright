@@ -48,7 +48,9 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "node-stream-zip": "^1.13.0"
+    "node-stream-zip": "^1.13.0",
+    "playwright-extra": "^4.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",
